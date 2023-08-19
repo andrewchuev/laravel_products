@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ProductUpdated;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -20,12 +21,15 @@ class ProductApiController extends Controller
 
     public function show(Product $product)
     {
+        event(new ProductUpdated($product));
         return $product;
     }
 
     public function update(Request $request, Product $product)
     {
         $product->update($request->all());
+        event(new ProductUpdated($product));
+
         return response()->json($product, 200);
     }
 

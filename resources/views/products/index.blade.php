@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <a href="{{ route('products.create') }}" class="btn btn-primary mb-3">Добавить продукт</a>
 
-                <table class="table table-bordered">
+                <table class="table table-bordered" id="product-list">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -18,11 +18,11 @@
                     </thead>
                     <tbody>
                     @foreach($products as $product)
-                        <tr>
+                        <tr data-product-id="{{$product->id}}">
                             <td>{{ $product->id }}</td>
-                            <td>{{ $product->name }}</td>
-                            <td>{{ $product->description }}</td>
-                            <td>{{ $product->price }}</td>
+                            <td class="product-name">{{ $product->name }}</td>
+                            <td class="product-description">{{ $product->description }}</td>
+                            <td class="product-price">{{ $product->price }}</td>
                             <td>
                                 <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-warning">Edit</a>
 
