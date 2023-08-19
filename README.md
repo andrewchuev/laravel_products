@@ -20,7 +20,7 @@ Requirements
 Installation
 
     Clone the repository:
-    git clone [your repository link]
+    git clone [this repository link]
 
     Install dependencies:
     composer install
