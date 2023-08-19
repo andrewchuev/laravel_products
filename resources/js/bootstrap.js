@@ -58,12 +58,22 @@ function updateProductInList(product) {
         productItem.querySelector('.product-price').innerText = product.price;
     } else {
         // Если товара нет в списке (например, он был только что создан), добавьте его
-        const newItem = document.createElement('li');
+        const newItem = document.createElement('tr');
         newItem.setAttribute('data-product-id', product.id);
         newItem.innerHTML = `
-            <span class="product-name">${product.name}</span> -
-            <span class="product-description">${product.description}</span> -
-            $<span class="product-price">${product.price}</span>
+            <td>${product.id}</td>
+            <td class="product-name">${product.name}</td>
+            <td class="product-description">${product.description}</td>
+            $<td class="product-price">${product.price}</td>
+            <td>
+                <a href="/products/${product.id}/edit" class="btn btn-sm btn-warning">Edit</a>
+
+                <form action="/products/${product.id}" method="POST" style="display: inline;">
+                    <input type="hidden" name="_token" value="rqkvxif7Pvz0pORUZZ9U7COlToedgjB3ML6Ttk0T">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </form>
+            </td>
         `;
 
         productList.appendChild(newItem);
