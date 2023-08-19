@@ -1,6 +1,6 @@
 # Laravel Product Management System
 
-This project provides a product management system built on Laravel 8, featuring both an API and a web interface.
+This project provides a product management system built on Laravel 10, featuring both an API and a web interface.
 Key Features
 
 - CRUD operations for products via a web interface.
