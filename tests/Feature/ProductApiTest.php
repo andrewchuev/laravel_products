@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class ProductApiTest extends TestCase
 {
-    use RefreshDatabase; // Это использует транзакции для сброса состояния базы данных после каждого теста.
+    use RefreshDatabase;
 
     /** @test */
     public function can_retrieve_all_products()
